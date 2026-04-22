@@ -86,7 +86,7 @@ def analyze_images_with_gemini(image_paths):
         model='gemini-2.5-pro',
         contents=[prompt] + uploaded_files,
         config=types.GenerateContentConfig(
-            response_mimetype="application/json",
+            response_mime_type="application/json",
             temperature=0.2,
         ),
     )
