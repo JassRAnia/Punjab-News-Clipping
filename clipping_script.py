@@ -83,7 +83,7 @@ def analyze_images_with_gemini(image_paths):
     
     # We specify the JSON response schema for reliability
     response = client.models.generate_content(
-        model='gemini-2.5-pro',
+        model='gemini-2.5-flash',
         contents=[prompt] + uploaded_files,
         config=types.GenerateContentConfig(
             response_mime_type="application/json",
