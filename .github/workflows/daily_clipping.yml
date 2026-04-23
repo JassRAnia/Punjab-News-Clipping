@@ -49,7 +49,11 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git pull --rebase
           git add reports/
-          git diff-index --quiet HEAD || git commit -m "Auto-generated daily news PDFs"
-          git push
+          if ! git diff-index --quiet HEAD; then
+            git commit -m "Auto-generated daily news PDFs"
+            git pull --rebase
+            git push
+          else
+            echo "No new reports to commit."
+          fi
